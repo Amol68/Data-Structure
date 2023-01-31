@@ -1,4 +1,4 @@
-
+package linked_list;
 
 public class LinkedList {
 
@@ -16,6 +16,7 @@ public class LinkedList {
 	  }
 	}
 	
+	// function to display nodes
 	public void display()
 	{
 		list_node current = head;
@@ -25,6 +26,27 @@ public class LinkedList {
 			current = current.next;
 		}
 		System.out.println(" null");
+	}
+	
+	
+	// function to count length of linked-list
+	public int length()
+	{
+		if(head==null)
+		{
+			return 0;
+		}
+		
+		int count = 0;
+		
+		list_node current = head;
+		
+		while(current!=null)
+		{
+			count++;
+			current = current.next;
+		}
+		return count;
 	}
 	
 	public static void main(String[] args)
@@ -40,6 +62,7 @@ public class LinkedList {
 		third.next = fourth;
 		
 		l1.display();
+		System.out.println(l1.length());
 	}
 			
 }
