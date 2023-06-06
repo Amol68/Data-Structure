@@ -47,7 +47,7 @@ public class stack {
 	
 	public int pop(){
 		if(is_empty()) {
-			throw new EmptyStackException();
+	          throw new EmptyStackException();
 		}
 		
 		int result = top.data;
