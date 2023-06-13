@@ -1,42 +1,31 @@
 class Solution {
-    public boolean isValid(String s) {
+    public int[] nextGreaterElement(int[] arr) {
+        
+     int[] result = new int[arr.length];
+     Stack<Integer> stack = new Stack<>();
 
-    Stack<Character> stack = new Stack<>();
-   
-   for(char c : s.toCharArray()){
+    for(int i=arr.length-1; i>=0; i--){
 
-     if(c=='(' || c=='{' || c=='['){
+      if(!stack.isEmpty()){
 
-         stack.push(c);
-     }
-     else{
+        while(!stack.isEmpty() && arr[i]>=stack.peek()){
+            stack.pop();
+        }
 
         if(stack.isEmpty()){
-            return false;
+            result[i]=-1;
         }
         else{
-
-            char top = stack.peek();
-
-            if(
-               (c==')' && top=='(') ||
-               (c=='}' && top=='{' ) ||
-                (c==']' && top=='[' ) ){
-   
-             stack.pop();
-
-                }else{
-
-                    return false;
-                }
+            result[i]=stack.peek();
         }
 
-       }
+   
+      }
 
-       }
-       }
+    stack.push(arr[i]);
 
-     return stack.isEmpty();
+    }
+
+    return result;
+    }
 }
-    
-
