@@ -7,7 +7,7 @@ class HelloWorld {
        int next_smaller[] = new int[arr.length];
        Stack<Integer> s1 = new Stack<>();
        
-       
+
        for(int i = arr.length-1; i>=0; i--){
            
            // push index of element in stack rather than element itself
