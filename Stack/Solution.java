@@ -32,5 +32,8 @@ class HelloWorld {
            System.out.println(next_greater[i]+" ");
            
        }
+
+
+        // To find next greater element to left , just reverse the loop i.e  'for(int i = 0; i<arr.length; i++)'
     }
 }
