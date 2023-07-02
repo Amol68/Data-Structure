@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Queue{
-    
+     
     private list_node front;
     private list_node rear;
     private int length;
