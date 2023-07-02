@@ -7,17 +7,6 @@ fill the gap, we can rearrange the remaining components to fill the space, but i
 Another alternative is to use a circular queue, with the front and back pointing to the beginning of the array after 
 the maximum size has been achieved. */
 
-
-/* The queue is a type of data structure that can be implemented using an array or a linked list. 
-A queue is data structure that is based on first-in first-out (FIFO) in which the first item 
-input is also the first item removed. Items are added to the end of the line and removed from the beginning.
-When utilising an array to construct a queue, the fact that an array has a fixed size once declared poses an
-issue in the queue implementation. When elements are added to a queue and then deleted, a gap is created. To
-fill the gap, we can rearrange the remaining components to fill the space, but it is a time-consuming procedure. 
-Another alternative is to use a circular queue, with the front and back pointing to the beginning of the array after 
-the maximum size has been achieved. */
-
-
 class Solution{
     
     static class Queue{
