@@ -1,0 +1,83 @@
+/* Naive Approach: Traverse the input price array. For every element being visited, 
+traverse elements on the left of it and increment the span value 
+ of it while elements on the left side are smaller */
+
+class Solution
+{
+    
+    public static int[] calculateSpan(int price[], int n, int span[])
+    {
+        span[0]=1;
+        
+        for(int i=1; i<n; i++){
+            
+            span[i]=1;
+            
+            for(int j=i-1; (j>=0)&&(price[j]<price[i]); j--)
+            span[i]++;
+        
+        }
+        
+    }
+    
+    static void print(int arr[]){
+       System.out.println(Array.toString(arr)); 
+    }
+    
+    public static void main(String[] args){
+        
+        int price[] = {10, 4, 5, 90, 120, 80};
+        int n = price.length;
+        int span[] = new int[n];
+        
+        calculateSpan(int[] price, int n, int span[]);
+        print(span);
+    }
+    
+}
+
+// Time Complexity: O(N2)
+// Auxiliary Space: O(N)
+
+-------->-------->-------->-------->-------->-------->-------->-------->-------->-------->-------->-------->-------->-------->-------->
+
+//Optimized Approach
+
+class Solution
+{
+   public static int[] calculateSpan(int[] price , int n){
+       
+       int span[] = new int[n];
+       Stack<Integer> s1 = new Stack<>();
+       
+       span[0]=1;
+       s1.push(0);
+       
+       for(int i=1; i<n; i++){
+           
+           while(!s1.isEmpty() && price[i]>=price[s1.peek()]){
+               s1.pop();
+           }  // keep popping up stack elements until we find element greater than current array element
+           
+           if(s1.isEmpty()){
+               
+               span[i]=i+1;  // if no greater element is found , increment i++; 
+           }
+           
+           else{
+               
+               span[i]=i-s1.peek(); // subtract current element's index with that of greater element
+           }
+           
+           s1.push(i); // push current index into stack
+       }
+       
+       return span;
+   } 
+
+    
+    
+}
+
+// Time Complexity: O(N)
+// Auxiliary Space: O(N)
