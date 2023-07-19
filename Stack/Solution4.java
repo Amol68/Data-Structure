@@ -3,7 +3,7 @@ class Solution4 {
     
     public static void stock_span(int[] stock , int[] span){
         
-        Stack<Integer> s1 = new Stack<>();
+        Stack<Integer> s1 = new Stack<>(); 
         span[0]=1;
         s1.push(0);
         
