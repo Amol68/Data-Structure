@@ -1,3 +1,45 @@
+/* Use two loops: The outer loop picks all the elements one by one. The inner loop looks
+for the first greater element for the element picked by the outer loop. If a greater
+element is found then that element is printed as next, otherwise, -1 is printed. */
+
+class HelloWorld {
+    
+    public static void find_greater(int[] arr , int n){
+        
+           for(int i=0; i<n; i++){
+            
+            int next_greater=-1;
+            
+            for(int j=i+1; j<n; j++){
+                
+                if(arr[j]>=arr[i])
+                {
+                next_greater=arr[j];
+                }
+        }
+      System.out.println(next_greater);
+        
+    }
+    
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+        
+        int arr[]= {11, 13, 21, 3};
+        int n = arr.length;
+       find_greater(arr, n);
+    }
+}
+
+
+//Time Complexity: O(N2) 
+//Auxiliary Space: O(1)
+
+
+
+--------//--------//--------//--------//--------//--------//--------//--------//v--------//--------//--------//--------//--------//-
+
 import java.util.*;
 
 class HelloWorld {
@@ -32,8 +74,7 @@ class HelloWorld {
            System.out.println(next_greater[i]+" ");
            
        }
-
-
-        // To find next greater element to left , just reverse the loop i.e  'for(int i = 0; i<arr.length; i++)'
+ // Time Complexity: O(N) && Auxiliary Space: O(N)
+ // To find next greater element to left , just reverse the loop i.e  'for(int i = 0; i<arr.length; i++)'
     }
 }
