@@ -1,3 +1,42 @@
+// Naive Approach
+class Solution9{
+    
+    public static int find_largest_area(int[] arr , int n){
+        
+        int res = 0;
+        
+        for(int i=0; i<n; i++){
+            int curr = arr[i];
+            
+            for(int j=i-1; j>=0; j--){
+                if(arr[j]>=arr[i]){
+                    curr += arr[i];
+                    else
+                    break;
+                }
+            }
+            
+              for(int j=i+1; j<n; j++){
+                if(arr[j]>=arr[i]){
+                    curr += arr[i];
+                    else
+                    break;
+                }
+            }
+            
+          res = max(current , res);
+            
+        }
+        return res;
+    }
+
+}
+
+// Time Complexity = O(n2)  &&  Space Complexity = O(n)
+
+
+//--------->>--------->>--------->>--------->>--------->>--------->>--------->>--------->>--------->>--------->>--------->>
+
 class Solution {
 
   public int[] next_smaller_element(int[] arr , int n){
