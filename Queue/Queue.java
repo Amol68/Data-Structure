@@ -54,7 +54,8 @@ class Queue{
 
             int result = front.data;
             front = front.next;
-            if(front==null){
+            if(front==null){ //when we remove last node from queue , we move both front and rear pointer ,
+                              // both pointing to null , indicating queue has become empty
             rear = null;
             length--;
            }
