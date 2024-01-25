@@ -2,7 +2,7 @@
 public class pattern {
 
 	 static void print(int r, int c) {
-		 
+		  
 		 if(r==0) {
 			 return;
 		 }
