@@ -19,3 +19,27 @@ public class linear_search {
 	}
 
 }
+
+// ------->------->------->------->------->------->------->------->------->------->------->------->------->------->------->------->------->
+
+//returning an arraylist of indices
+
+import java.util.ArrayList;
+
+class HelloWorld {
+    
+    public static void main(String[] args) {
+      
+      int[] arr = {2,7,9,13,7,90};
+      System.out.println(searchAll(arr,7,0,new ArrayList()));
+    }
+    
+    public static ArrayList searchAll(int[] arr,int target,int index,ArrayList<Integer> list){
+        
+        if(index==arr.length) return list;
+        
+        if(arr[index]==target) list.add(index);
+        
+        return searchAll(arr,target,++index,list);
+    }
+}
