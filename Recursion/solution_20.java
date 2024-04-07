@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Solution {
-    public List<String> letterCombinations(String digits) {
+    public List<String> letterCombinations(String digits) { 
 
         if(digits.isEmpty()){
             return new ArrayList();    // base case i.e if digits is empty return empty list
