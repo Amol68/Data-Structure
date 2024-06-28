@@ -343,3 +343,104 @@ class CLL {
     }
 }
 
+------>------>------>------>------>------>------>------>------>------>------>------>------>------>------>------>------>------>
+merge two sorted linked lists:
+
+class LL{
+    
+  private node head;
+  private node tail;
+  private int size;
+ 
+    public void insertLast(int value){
+        
+        
+        node n1 = new node(value);
+        if(tail==null){
+            tail=n1;
+            head=n1;
+        }
+        tail.next=n1;
+        tail=n1;
+        size= size+1;
+    }
+    public void display(){
+        node current = head;
+        
+        while(current!=null){
+            System.out.print(current.data +"-->");
+            current = current.next;
+        }
+        System.out.print("null");
+        System.out.println();
+    }
+    
+    public static  LL mergeList(LL first, LL second){
+        
+        node f = first.head;
+        node s = second.head;
+        LL ans = new LL();
+        
+        while(f!=null && s!=null){
+            
+            if(f.data<s.data){
+                ans.insertLast(f.data);
+                f=f.next;
+            }
+            else{
+                ans.insertLast(s.data);
+                s=s.next;
+            }
+        }
+        
+        while(f!=null){
+            ans.insertLast(f.data);
+            f=f.next;
+        }
+        while(s!=null){
+            ans.insertLast(s.data);
+            s=s.next;
+        }
+         return ans;
+        
+    }
+    
+    private class node{
+        private int data;
+        private node next;
+        
+        public node(int data){
+            this.data=data;
+            this.next=null;
+        }
+        
+        public node(int data,node next){
+            this.data = data;
+            this.next = next;
+        }
+    }
+
+    public static void main(String[] args) {
+        LL l1 = new LL();
+        l1.insertLast(1);
+        l1.insertLast(3);
+        l1.insertLast(5);
+        l1.insertLast(9);
+        l1.display();
+        
+        LL l2 = new LL();
+        l2.insertLast(2);
+        l2.insertLast(4);
+        l2.insertLast(6);
+        l2.insertLast(8);
+        l2.display();
+     
+        
+        LL ans = new LL();
+        ans = mergeList(l1,l2);
+        ans.display();
+    }
+}
+
+
+------->------->------->------->------->------->------->------->------->------->------->------->------->------->------->------->------->
