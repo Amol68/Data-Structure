@@ -1,0 +1,121 @@
+// Brute Force Approach 
+// 293/294 test cases passed
+
+import java.util.stream.*;
+
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+
+         if(nums==null || nums.length<4) return new ArrayList<>();
+ 
+         Arrays.sort(nums);
+
+        if(nums.length == 4){
+              long sum = nums[0]+nums[1];
+                sum += nums[2];
+                sum += nums[3];
+
+                if(sum != target)  return new ArrayList<>();
+        }
+
+         
+         Set<List<Integer>> resultSet = new HashSet<>();
+
+         int size = nums.length;
+
+         for(int i=0; i<size; i++){
+
+            if(i>0 && nums[i]==nums[i-1]) continue;
+
+           for(int j=i+1; j<size; j++){
+
+            if(j>i+1 && nums[j]==nums[j-1]) continue;
+
+             for(int k=j+1; k<size; k++){
+
+                if(k>j+1 && nums[k]==nums[k-1]) continue;
+
+                for(int l=k+1; l<size; l++){
+
+                       if(l>k+1 && nums[l]==nums[l-1]) continue;
+
+                     int sum = nums[i]+nums[j];
+                     sum += nums[k];
+                     sum += nums[l];
+
+                     if(sum==target){
+                        resultSet.add(Arrays.asList(nums[i],nums[j],nums[k],nums[l]));
+                     }
+
+                }
+
+             }
+           }
+
+         }
+
+         return new ArrayList<>(resultSet);
+    }
+}
+
+// Time Complexity: BigO(n^4)
+// Space Complexity : No of Quads * 2 (for arraylist and hashset)
+
+--------->--------->--------->--------->--------->--------->--------->--------->--------->--------->--------->--------->--------->--------->--------->--------->--------->--------->--------->
+
+// Optimal Approach (Two Pointers)
+
+  import java.util.stream.*;
+
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+
+         if(nums==null || nums.length<4) return new ArrayList<>();
+         Arrays.sort(nums);
+
+         int size = nums.length;
+         Set<List<Integer>> resultSet = new HashSet<>();
+
+         if(size<3) return new ArrayList<>();
+
+         for(int i=0; i<size-3; i++){
+
+          if(i>0 && nums[i]==nums[i-1]) continue;
+
+         for(int j=i+1; j<size-2; j++){
+
+        if(j>i+1 && nums[j]==nums[j-1]) continue;
+
+            int left = j+1;
+            int right = size-1;
+
+            while(left < right){
+
+               long sum = nums[i]+nums[j];
+               sum+=nums[left];
+               sum+=nums[right];
+
+               if(sum==target){
+
+                resultSet.add(Arrays.asList(nums[i],nums[j],nums[left],nums[right]));
+
+                while(left<right && nums[left]==nums[left+1]) left++;
+                while(left<right && nums[right]==nums[right-1]) right--;
+
+                left++;
+                right--;
+               }
+               else if(sum<target) left++;
+               else right--;
+            }
+
+          }
+
+         }
+
+         return new ArrayList<>(resultSet);
+    }
+}
+
+// Time Complexity: BigO(n^3)
+// Space Complexity : No of Quads * 2 (for arraylist and hashset)
