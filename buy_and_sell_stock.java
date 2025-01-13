@@ -1,5 +1,35 @@
-// naive approach
+// naive approach (1)
 
+class Solution {
+    public int maxProfit(int[] prices) {
+        
+        if(prices==null || prices.length<2) return 0;
+
+        int max_profit = 0;  
+        int profit = 0;
+        int n = prices.length;
+
+        for(int i=0; i<n-1; i++){
+             for(int j=i+1; j<n; j++){
+
+                if(prices[i]<=prices[j]){
+                    profit=prices[i]-prices[j];
+                    max_profit=Math.max(max_profit,Math.abs(profit));
+                }
+                profit = 0;
+             }
+        }
+
+    return max_profit;
+    }
+}
+
+// Time complexity: O(n^2)
+// Space complexity: O(1)
+
+//----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||----------||
+
+// naive approach (1)
 class Solution {
     public int maxProfit(int[] prices) {
 
@@ -34,7 +64,6 @@ class Solution {
        return max_profit;  
     }
 }
-
 
 
 
